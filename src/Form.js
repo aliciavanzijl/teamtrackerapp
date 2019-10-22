@@ -15,7 +15,10 @@ class Form extends Component {
             lastnameError: '',
             birthdateError: '',
             positionError: '',
-
+            firstnamealertBox: '',
+            lastnamealertBox: '',
+            birthdatealertBox: '',
+            positionalertBox: '',
         };
 
         this.state = this.initialState;
@@ -33,25 +36,33 @@ class Form extends Component {
       let lastnameError = "";
       let birthdateError = "";
       let positionError = "";
+      let firstnamealertBox = "";
+      let lastnamealertBox = "";
+      let birthdatealertBox = "";
+      let positionalertBox = "";
 
       if (!this.state.firstname) {
         firstnameError = "first name cannot be blank";
+        firstnamealertBox = "alert alert-danger";
       }
 
       if (!this.state.lastname) {
         lastnameError = "last name cannot be blank";
+        lastnamealertBox = "alert alert-danger";
       }
 
       if (!this.state.birthdate) {
         birthdateError = "please enter a date of birth";
+        birthdatealertBox = "alert alert-danger";
       }
 
       if (!this.state.position) {
         positionError = "please enter a position";
+        positionalertBox = "alert alert-danger";
       }
 
       if (firstnameError || lastnameError || birthdateError || positionError) {
-      this.setState({ firstnameError, lastnameError, birthdateError, positionError });
+      this.setState({ firstnameError, lastnameError, birthdateError, positionError, firstnamealertBox, lastnamealertBox, birthdatealertBox, positionalertBox });
       return false;
       }
 
@@ -79,42 +90,47 @@ class Form extends Component {
                 <input className="form-control"
                     type="text"
                     name="firstname"
+                    placeholder="e.g. Daneel"
                     value={firstname}
                     onChange={this.handleChange} />
-                <div className="alert alert-danger" role="alert">{this.state.firstnameError}</div>
+                <div className={this.state.firstnamealertBox}>{this.state.firstnameError}</div>
               </div>
               <div className="form-group">
                 <label>Last Name</label>
                 <input className="form-control"
                     type="text"
                     name="lastname"
+                    placeholder="e.g. Olivaw"
                     value={lastname}
                     onChange={this.handleChange} />
-                <div className="alert alert-danger" role="alert">{this.state.lastnameError}</div>
+                <div className={this.state.lastnamealertBox}>{this.state.lastnameError}</div>
               </div>
               <div className="form-group">
                 <label>Date of Birth</label>
                 <input className="form-control"
                     type="text"
                     name="birthdate"
+                    placeholder="e.g. 5020/01/01"
                     value={birthdate}
                     onChange={this.handleChange} />
-                <div className="alert alert-danger" role="alert">{this.state.birthdateError}</div>
+                <div className={this.state.birthdatealertBox}>{this.state.birthdateError}</div>
               </div>
               <div className="form-group">
                 <label>Position</label>
                 <input className="form-control"
                     type="text"
                     name="position"
+                    placeholder="e.g. Detective"
                     value={position}
                     onChange={this.handleChange} />
-                <div className="alert alert-danger" role="alert">{this.state.positionError}</div>
+                <div className={this.state.positionalertBox}>{this.state.positionError}</div>
               </div>
               <div className="form-group">
                 <label>Description</label>
                 <input className="form-control"
                     type="text"
                     name="description"
+                    placeholder="e.g. Undercover snooping."
                     value={description}
                     onChange={this.handleChange} />
               </div>
@@ -123,6 +139,7 @@ class Form extends Component {
                 <input className="form-control"
                     type="text"
                     name="parttime"
+                    placeholder="Yes or No?"
                     value={parttime}
                     onChange={this.handleChange} />
               </div>

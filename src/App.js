@@ -1,10 +1,21 @@
 import React, { Component } from 'react'
 import Table from './Table'
 import Form from './Form'
+import AddPersonButton from './AddPerson'
 
 class App extends Component {
   state = {
     team: [],
+    isEmptyState: true,
+  }
+
+
+  triggerAddPersonState = () => {
+    this.setState({
+      ...this.state,
+      isEmptyState: false,
+      isAddPersonState: true
+    })
   }
 
   removeTeam = index => {
@@ -31,8 +42,8 @@ class App extends Component {
         <Table teamData={team} removeTeam={this.removeTeam} />
         </div>
         <div className="formbox">
-          <h2>Add a new team member:</h2>
-          <Form handleSubmit={this.handleSubmit} />
+          {this.state.isEmptyState && <AddPersonButton addPerson={this.triggerAddPersonState} />}
+          {this.state.isAddPersonState && <Form handleSubmit={this.handleSubmit} />}
         </div>
       </div>
     )
