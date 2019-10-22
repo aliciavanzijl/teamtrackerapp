@@ -86,7 +86,7 @@ class Form extends Component {
             <form onSubmit={this.onFormSubmit}>
 
               <div className="form-group">
-                <label>First Name</label>
+                <label>First Name (required)</label>
                 <input className="form-control"
                     type="text"
                     name="firstname"
@@ -96,7 +96,7 @@ class Form extends Component {
                 <div className={this.state.firstnamealertBox}>{this.state.firstnameError}</div>
               </div>
               <div className="form-group">
-                <label>Last Name</label>
+                <label>Last Name (required)</label>
                 <input className="form-control"
                     type="text"
                     name="lastname"
@@ -106,7 +106,7 @@ class Form extends Component {
                 <div className={this.state.lastnamealertBox}>{this.state.lastnameError}</div>
               </div>
               <div className="form-group">
-                <label>Date of Birth</label>
+                <label>Date of Birth (required)</label>
                 <input className="form-control"
                     type="text"
                     name="birthdate"
@@ -116,7 +116,7 @@ class Form extends Component {
                 <div className={this.state.birthdatealertBox}>{this.state.birthdateError}</div>
               </div>
               <div className="form-group">
-                <label>Position</label>
+                <label>Position (required)</label>
                 <input className="form-control"
                     type="text"
                     name="position"
