@@ -1,22 +1,13 @@
-import React, { Component } from 'react'
-import Table from './Table'
-import Form from './Form'
-import AddPersonButton from './AddPerson'
+import React, { Component } from 'react';
+import Table from './Table';
+import Form from './Form';
 
 class App extends Component {
   state = {
     team: [],
-    isEmptyState: true,
+    shown: false,
   }
 
-
-  triggerAddPersonState = () => {
-    this.setState({
-      ...this.state,
-      isEmptyState: false,
-      isAddPersonState: true
-    })
-  }
 
   removeTeam = index => {
     const { team } = this.state
@@ -28,6 +19,7 @@ class App extends Component {
     })
   }
 
+
   handleSubmit = teammate => {
     this.setState({team: [...this.state.team, teammate]});
   }
@@ -36,15 +28,27 @@ class App extends Component {
     const { team } = this.state
 
     return (
+      <div>
+      <div className="logobar">
+          <img
+            alt=""
+            src="/logo.png"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+            />
+            <h1>Team Tracker</h1>
+      </div>
       <div className="container">
-        <h1>Team Tracker</h1>
         <div className="table-responsive">
         <Table teamData={team} removeTeam={this.removeTeam} />
+        <br />
         </div>
         <div className="formbox">
-          {this.state.isEmptyState && <AddPersonButton addPerson={this.triggerAddPersonState} />}
-          {this.state.isAddPersonState && <Form handleSubmit={this.handleSubmit} />}
+          <button className="btn btn-primary" onClick={() => this.setState({ shown: !this.state.shown})}>Add a team member (toggle)</button>
+          {this.state.shown && <Form handleSubmit={this.handleSubmit} />}
         </div>
+      </div>
       </div>
     )
   }
