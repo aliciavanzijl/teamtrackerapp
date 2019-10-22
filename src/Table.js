@@ -19,7 +19,7 @@ const TableBody = props => {
   const rows = props.teamData.map((row, index) => {
     return (
       <tr key={index}>
-        <td>{row.name}</td>
+        <td>{row.firstname + " " + row.lastname}</td>
         <td>{row.birthdate}</td>
         <td>{row.position}</td>
         <td>{row.description}</td>

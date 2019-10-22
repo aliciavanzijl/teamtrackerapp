@@ -4,12 +4,18 @@ class Form extends Component {
     constructor(props) {
         super(props);
 
-        this.initialState = {
-            name: '',
-            birthdate: '',
-            position: '',
+        this.initialState = { //makes the form blank
+            firstname: '', //required
+            lastname: '', //required
+            birthdate: '', //required
+            position: '', //required
             description: '',
             parttime: '',
+            firstnameError: '',
+            lastnameError: '',
+            birthdateError: '',
+            positionError: '',
+
         };
 
         this.state = this.initialState;
@@ -22,26 +28,69 @@ class Form extends Component {
         });
     }
 
+    validate = () => {
+      let firstnameError = "";
+      let lastnameError = "";
+      let birthdateError = "";
+      let positionError = "";
+
+      if (!this.state.firstname) {
+        firstnameError = "first name cannot be blank";
+      }
+
+      if (!this.state.lastname) {
+        lastnameError = "last name cannot be blank";
+      }
+
+      if (!this.state.birthdate) {
+        birthdateError = "please enter a date of birth";
+      }
+
+      if (!this.state.position) {
+        positionError = "please enter a position";
+      }
+
+      if (firstnameError || lastnameError || birthdateError || positionError) {
+      this.setState({ firstnameError, lastnameError, birthdateError, positionError });
+      return false;
+      }
+
+    return true;
+
+    };
 
     onFormSubmit = (event) => {
         event.preventDefault();
+        const isValid = this.validate();
+        if (isValid) {
         this.props.handleSubmit(this.state);
-        this.setState(this.initialState);
-    }
+        this.setState(this.initialState); //clears form
+      }
+    };
 
     render() {
-        const { name, birthdate, position, description, parttime } = this.state;
+      const { firstname, lastname, birthdate, position, description, parttime } = this.state;
 
-        return (
+      return (
             <form onSubmit={this.onFormSubmit}>
 
               <div className="form-group">
-                <label>Full Name</label>
+                <label>First Name</label>
                 <input className="form-control"
                     type="text"
-                    name="name"
-                    value={name}
+                    name="firstname"
+                    value={firstname}
                     onChange={this.handleChange} />
+                <div className="alert alert-danger" role="alert">{this.state.firstnameError}</div>
+              </div>
+              <div className="form-group">
+                <label>Last Name</label>
+                <input className="form-control"
+                    type="text"
+                    name="lastname"
+                    value={lastname}
+                    onChange={this.handleChange} />
+                <div className="alert alert-danger" role="alert">{this.state.lastnameError}</div>
               </div>
               <div className="form-group">
                 <label>Date of Birth</label>
@@ -50,6 +99,7 @@ class Form extends Component {
                     name="birthdate"
                     value={birthdate}
                     onChange={this.handleChange} />
+                <div className="alert alert-danger" role="alert">{this.state.birthdateError}</div>
               </div>
               <div className="form-group">
                 <label>Position</label>
@@ -58,6 +108,7 @@ class Form extends Component {
                     name="position"
                     value={position}
                     onChange={this.handleChange} />
+                <div className="alert alert-danger" role="alert">{this.state.positionError}</div>
               </div>
               <div className="form-group">
                 <label>Description</label>
@@ -80,7 +131,7 @@ class Form extends Component {
                 </button>
             </form>
         );
-    }
+    };
 }
 
 export default Form;
