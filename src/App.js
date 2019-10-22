@@ -26,8 +26,14 @@ class App extends Component {
 
     return (
       <div className="container">
+        <h1>Team Tracker</h1>
+        <div className="table-responsive">
         <Table teamData={team} removeTeam={this.removeTeam} />
-        <Form handleSubmit={this.handleSubmit} />
+        </div>
+        <div className="formbox">
+          <h2>Add a new team member:</h2>
+          <Form handleSubmit={this.handleSubmit} />
+        </div>
       </div>
     )
   }

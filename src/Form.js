@@ -17,15 +17,14 @@ class Form extends Component {
 
     handleChange = event => {
         const { name, value } = event.target;
-
         this.setState({
             [name] : value
         });
     }
 
+
     onFormSubmit = (event) => {
         event.preventDefault();
-
         this.props.handleSubmit(this.state);
         this.setState(this.initialState);
     }
@@ -35,37 +34,48 @@ class Form extends Component {
 
         return (
             <form onSubmit={this.onFormSubmit}>
+
+              <div className="form-group">
                 <label>Full Name</label>
-                <input
+                <input className="form-control"
                     type="text"
                     name="name"
                     value={name}
                     onChange={this.handleChange} />
+              </div>
+              <div className="form-group">
                 <label>Date of Birth</label>
-                <input
+                <input className="form-control"
                     type="text"
                     name="birthdate"
                     value={birthdate}
                     onChange={this.handleChange} />
+              </div>
+              <div className="form-group">
                 <label>Position</label>
-                <input
+                <input className="form-control"
                     type="text"
                     name="position"
                     value={position}
                     onChange={this.handleChange} />
+              </div>
+              <div className="form-group">
                 <label>Description</label>
-                <input
+                <input className="form-control"
                     type="text"
                     name="description"
                     value={description}
                     onChange={this.handleChange} />
+              </div>
+              <div className="form-group">
                 <label>Do they work part-time?</label>
-                <input
+                <input className="form-control"
                     type="text"
                     name="parttime"
                     value={parttime}
                     onChange={this.handleChange} />
-                <button type="submit">
+              </div>
+                <button className="btn btn-primary" type="submit">
                     Submit
                 </button>
             </form>
