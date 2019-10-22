@@ -40,7 +40,7 @@ The last column of each row has a button that allows for removing the employee.
 ### Libraries Used
 I made the decision to use Bootstrap.css to provide the basic formatting, due to the time constraints.
 
-### Basic Functionality
+### The Table
 
 ### Form Design
 
@@ -49,4 +49,13 @@ https://getbootstrap.com/docs/4.0/components/alerts/
 
 ### Toggle Button
 
+## Next Steps
+I would like to do the following:
 
+- Change the date input from a string to a date format using [React Date Picker](https://reactdatepicker.com/).
+- Make the text on the toggle button change depending on state (i.e. change to "No more to add" or "Close").
+- Change the error alerts into a component to reduce repetition in my code and improve readability.
+- Add tests.
+- Improve styling.
+- Accessibility.
+- Improve responsiveness.  
