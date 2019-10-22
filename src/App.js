@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Table from './Table';
 import Form from './Form';
+import logo from './logo.png';
+import Footer from './Footer';
 
 class App extends Component {
   state = {
@@ -29,15 +31,11 @@ class App extends Component {
 
     return (
       <div>
-      <div className="logobar">
-          <img
-            alt=""
-            src="/logo.png"
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-            />
-            <h1>Team Tracker</h1>
+      <div id="logobar">
+        <ul>
+          <li><img src={logo} alt="Logo" width="100px" height="100px"/></li>
+          <li><h1>Team Tracker</h1></li>
+          </ul>
       </div>
       <div className="container">
         <div className="table-responsive">
@@ -49,6 +47,7 @@ class App extends Component {
           {this.state.shown && <Form handleSubmit={this.handleSubmit} />}
         </div>
       </div>
+      <div><Footer /></div>
       </div>
     )
   }

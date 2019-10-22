@@ -15,3 +15,23 @@ code {
 form {
   margin-top: 20px;
 }
+
+#logobar {
+  vertical-align:bottom;
+}
+
+#logobar li {
+  vertical-align:bottom;
+  display: inline-block;
+  padding: 10px;
+  color: #277AF6;
+}
+
+#footerblock {
+  background-color: #EA4945;
+  color: white;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 0;
+  padding: 20px;
+}
