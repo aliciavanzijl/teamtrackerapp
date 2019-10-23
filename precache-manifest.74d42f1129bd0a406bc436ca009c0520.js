@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3012a21f07ac3c5fd5c73de1593e8165",
+    "revision": "90c3f2894637f2d632f2ebc11c6eec97",
     "url": "/teamtrackerapp/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/teamtrackerapp/static/css/2.510409cd.chunk.css"
   },
   {
-    "revision": "33d855352eabf0d89540",
+    "revision": "19271e15ae4d62ee5c29",
     "url": "/teamtrackerapp/static/css/main.dbd64786.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/teamtrackerapp/static/js/2.76255311.chunk.js"
   },
   {
-    "revision": "33d855352eabf0d89540",
-    "url": "/teamtrackerapp/static/js/main.f8b6ae8d.chunk.js"
+    "revision": "19271e15ae4d62ee5c29",
+    "url": "/teamtrackerapp/static/js/main.703e7dc8.chunk.js"
   },
   {
     "revision": "8ad5fb197c34d2a8ecce",
