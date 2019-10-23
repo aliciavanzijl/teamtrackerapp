@@ -111,6 +111,7 @@ class Form extends Component {
                     type="text"
                     name="birthdate"
                     placeholder="e.g. 5020/01/01"
+                    pattern="\d{4}/\d{1,2}/\d{1,2}"
                     value={birthdate}
                     onChange={this.handleChange} />
                 <div className={this.state.birthdatealertBox}>{this.state.birthdateError}</div>
