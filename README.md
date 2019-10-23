@@ -84,8 +84,7 @@ I added "shown: false" to the state in App.js.
 
 I then created a button with an onClick funtion to change "shown" as follows:
 
-```<button className="btn btn-primary" onClick={() => this.setState({ shown: !this.state.shown})}>Add a team member (toggle)</button>
-          {this.state.shown && <Form handleSubmit={this.handleSubmit} />}
+```<button className="btn btn-primary" onClick={() => this.setState({ shown: !this.state.shown})}>Add a team member (toggle)</button>{this.state.shown && <Form handleSubmit={this.handleSubmit} />}
 ```
  This then shows or hides the Form component on click.
 
